@@ -1,0 +1,15 @@
+
+
+h2, h5{
+    font-family: 'Open Sans', sans-serif !important;
+    letter-spacing: 2px;
+}
+
+p{
+    font-size: 1rem ;
+}
+
+.btn{
+    font-size:16.005px !important;
+    letter-spacing: 2px;
+}
