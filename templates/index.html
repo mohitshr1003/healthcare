@@ -15,13 +15,16 @@
 <body>
     <!-- <div class="col-12 fixed-top"><img src="{% static 'images/strip.png' %}" class="img-fluid w-100" style="height:60px;"></div> -->
 
-    <header class="sticky-top bg-white">
+    <header class="sticky-top bg-white" style=" transition: box-shadow 0.25s cubic-bezier(0.32, 0.01, 0, 1);">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-12"><img src="{% static 'images/healthcare-logo.png' %}"
-                        class="img-fluid logo"></div>
-                <div class="col-lg-9 d-none d-sm-block text-end">
-                    <button class="btn text-light mt-2 p-2 px-3" style="border:0px; background:#1aa7ec;" href="#">
+            <div class="row pt-3">
+                <div class="col-lg-3 col-md-4 col-sm-5 col-8">
+                    <img src="{% static 'images/healthcare-logo.png' %}" class="img-fluid logo">
+                </div>
+                <div class="col-lg-6 col-md-5 col-sm-3 col-0">
+                </div>
+                <div class="pt-4 col-lg-3 col-md-3 col-sm-4 col-6 d-none d-sm-block text-end">
+                    <button class="btn btn-info text-light mt-2 p-2 px-3" href="#">
                         Register Now
                     </button>
                 </div>
@@ -29,18 +32,18 @@
     </header>
     <section>
         <div class="container">
-            <div class="row pt-5">
-                <div class="col-6 text-start pt-5">
-                    <h2 style="color: #738f93;" class="text-uppercase">The Best Medical <br>Healthcare Services</h2>
-                    <div class="row pt-3">
-                        <div class="col-6">
+            <div class="row">
+                <div class="col-lg-6 col-md-4 col-12 float-start">
+                    <h2 class="pt-5" style="color: #738f93;" class="text-uppercase">The Best Medical <br>Healthcare Services</h2>
+                    <div class="row pt-3 mb-5">
+                        <div class="col-lg-6 col-md-12 col-12 my-5">
                             <h5 style="font-weight: 800" ;>For Doctors</h5>
                             <p>Lorem ipsum is placeholder text commonly used in the graphic, print,
                                 and publishing industries for previewing layouts and visual mockups.</p>
                             <button class="btn p-2 px-4" style="background-color:#1aa7ec; color: #fff;">Doctor
                                 Login</button>
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-12 col-12 my-5">
                             <h5 style="font-weight: 800" ;>For Patients</h5>
                             <p>Lorem ipsum is placeholder text commonly used in the graphic, print,
                                 and publishing industries for previewing layouts and visual mockups.</p>
@@ -50,7 +53,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 ps-5 text-end">
+                <div class="col-lg-6 col-md-8 col-12 ps-5 pt-5 d-none d-md-block float-end">
                     <img src="{% static 'images/dp-new.png' %}" class="img-fluid">
                 </div>
             </div>
@@ -58,7 +61,7 @@
         </div>
         </div>
     </section>
-    <footer>
+    <footer class="py-lg-5 py-md-0 pt-sm-5" style="bottom: 0; width:100%">
         <div class="container">
         <p style="font-size: 0.82em;color: #576871;">Copyright © 2022 Healthcare Hospital</p>
         <p style="font-size: 0.82em;color: #576871;">Privacy Policy</p>
