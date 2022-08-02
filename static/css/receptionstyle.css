@@ -11,6 +11,14 @@
 {
   background-image: url('/static/images/img7.jpg');
   background-repeat: no-repeat;
+  border-radius: 10px 0 0 10px;
+  background-size: cover;
+}
+.card-two
+{
+  background-image: url('/static/images/img17.jpg');
+  background-repeat: no-repeat;
+  border-radius: 10px 0 0 10px;
   background-size: cover;
 }
 .card-copy
@@ -18,7 +26,18 @@
   background-image: url('/static/images/img10.png');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position-x: center;
+  border-radius: 0 10px 10px 0;
+  height: 100%;
+  color: #738f93;
+}
+.card-copy-one
+{
+  background-image: url('/static/images/img11.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position-x: center ;
+  border-radius: 0 10px 10px 0;
   height: 100%;
   color: #738f93;
 }

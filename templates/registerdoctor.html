@@ -26,11 +26,11 @@
                 <div class="col-lg-6 col-md-5 col-sm-3 col-0">
                 </div>
                 <div class="pt-4 col-lg-3 col-md-3 col-sm-4 col-6 d-none d-sm-block text-end">
-                <a href="../reception/doctor/">
-                    <button class="btn btn-info text-light mt-2 p-2 px-3" >
-                        Register New Doctor
-                    </button>
-                </a>
+                    <a href="../">
+                        <button class="btn btn-info text-light mt-2 p-2 px-3">
+                        Register New Patient
+                        </button>
+                    </a>
                 </div>
             </div>
     </header>
@@ -40,16 +40,16 @@
                 <h1 class="text-uppercase display-6">Healthcare Hospital Reception</h1>
                 <ul class="d-flex justify-content-center" style="list-style-type: none;">
                     <li> Reception &numsp; </li>
-                    <li><i class="fa-solid fa-angles-right"></i>&numsp; Register New Patient &numsp;<i class="fa-solid fa-hospital-user"></i></li>
+                    <li><i class="fa-solid fa-angles-right"></i>&numsp; Register New Doctor &numsp;<i class="fa-solid fa-user-doctor"></i></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="container mt-5 card">
         <div class="row d-flex">
-            <div class="col-xl-7 col-lg-7 col-md-7 col-12 text-center card-one">
+            <div class="col-xl-7 col-lg-7 col-md-7 col-12 text-center card-two">
                 <div class="pb-5">     
-                  <form id="patientRegForm" method="post" enctype="multipart/form-data">
+                  <form id="doctorregForm" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="p-5">
                         <div class="row justify-content-between text-left">
@@ -100,8 +100,8 @@
                 </form>
                 </div>
             </div>
-            <div class="col-xl-5 col-lg-5 col-md-5 col-0">
-                <div class="text-center card-copy">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-0 p-0">
+                <div class="text-center card-copy-one">
                 </div>
             </div>
         </div>
