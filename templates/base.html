@@ -14,7 +14,9 @@
 
 <body>
     <!-- <div class="col-12 fixed-top"><img src="{% static 'images/strip.png' %}" class="img-fluid w-100" style="height:60px;"></div> -->
-
+    <div class="col-12" style="background-color:#1aa7ec;">
+        <div class="container text-end text-white py-1"><i class="fa fa-mobile" aria-hidden="true"></i> 9876 543210 | <i class="fa fa-phone" aria-hidden="true"></i> 0161 5874 98</div>
+    </div>
     <header class="sticky-top bg-white">
         <div class="container">
             <div class="row">
@@ -29,10 +31,9 @@
     </header>
     {% block body_content %}
     {% endblock %}
-    <footer>
-        <div class="container" style="line-height: 10px;">
-        <p style="font-size: 0.82em;color: #576871;">Copyright © 2022 Healthcare Hospital</p>
-        <p style="font-size: 0.82em;color: #576871;">Privacy Policy</p>
+    <footer class="fixed-bottom pt-3" style="background-color: #1aa7ec;">
+        <div class="container text-white" style="line-height: 7px;">
+        <p style="font-size: 0.82em;">Copyright © 2022 Healthcare Hospital  |  Privacy Policy</p>
         </div>
     </footer>
 </body>
