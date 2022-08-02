@@ -1,46 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 {% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healthcare Hospital</title>
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
-<body>
-    <!-- <div class="col-12 fixed-top"><img src="{% static 'images/strip.png' %}" class="img-fluid w-100" style="height:60px;"></div> -->
-
-    <header class="sticky-top bg-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-12"><img src="{% static 'images/healthcare-logo.png' %}"
-                        class="img-fluid logo"></div>
-                <div class="col-lg-9 d-none d-sm-block text-end">
-                    <button class="btn text-light mt-2 p-2 px-3" style="border:0px; background:#1aa7ec;" href="#">
-                        Register Now
-                    </button>
-                </div>
-            </div>
-    </header>
+{% block body_content %}
     <section>
         <div class="container">
-            <div class="row pt-5">
-                <div class="col-6 text-start pt-5">
+            <div class="row pt-5" style="min-height:475px;">
+                <div class="col-lg-6 col-12 text-start pt-5 container">
                     <h2 style="color: #738f93;" class="text-uppercase">The Best Medical <br>Healthcare Services</h2>
                     <div class="row pt-3">
-                        <div class="col-6">
+                        <div class="col-lg-6 col-12 mb-5">
                             <h5 style="font-weight: 800" ;>For Doctors</h5>
                             <p>Lorem ipsum is placeholder text commonly used in the graphic, print,
                                 and publishing industries for previewing layouts and visual mockups.</p>
-                            <button class="btn p-2 px-4" style="background-color:#1aa7ec; color: #fff;">Doctor
-                                Login</button>
+                            <a href="../doctor-login/"><button class="btn p-2 px-4" style="background-color:#1aa7ec; color: #fff;">Doctor
+                                Login</button></a>
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-6 col-12 mb-5">
                             <h5 style="font-weight: 800" ;>For Patients</h5>
                             <p>Lorem ipsum is placeholder text commonly used in the graphic, print,
                                 and publishing industries for previewing layouts and visual mockups.</p>
@@ -50,20 +25,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 ps-5 text-end">
-                    <img src="{% static 'images/dp-new.png' %}" class="img-fluid">
+                <div class="col-6 ps-5 text-end d-none d-sm-block">
+                    <img src="{% static 'images/dp-vec2.webp' %}" class="img-fluid">
                 </div>
             </div>
         </div>
         </div>
         </div>
     </section>
-    <footer>
-        <div class="container">
-        <p style="font-size: 0.82em;color: #576871;">Copyright © 2022 Healthcare Hospital</p>
-        <p style="font-size: 0.82em;color: #576871;">Privacy Policy</p>
-        </div>
-    </footer>
-</body>
-
-</html>
+{% endblock %}
