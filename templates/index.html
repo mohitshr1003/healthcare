@@ -2,35 +2,35 @@
 {% load static %}
 
 {% block body_content %}
-    <section>
-        <div class="container">
-            <div class="row pt-5" style="min-height:475px;">
-                <div class="col-lg-6 col-12 text-start pt-5 container">
-                    <h2 style="color: #738f93;" class="text-uppercase">The Best Medical <br>Healthcare Services</h2>
-                    <div class="row pt-3">
-                        <div class="col-lg-6 col-12 mb-5">
-                            <h5 style="font-weight: 800" ;>For Doctors</h5>
-                            <p>Lorem ipsum is placeholder text commonly used in the graphic, print,
-                                and publishing industries for previewing layouts and visual mockups.</p>
-                            <a href="../doctor-login/"><button class="btn p-2 px-4" style="background-color:#1aa7ec; color: #fff;">Doctor
-                                Login</button></a>
-                        </div>
-                        <div class="col-lg-6 col-12 mb-5">
-                            <h5 style="font-weight: 800" ;>For Patients</h5>
-                            <p>Lorem ipsum is placeholder text commonly used in the graphic, print,
-                                and publishing industries for previewing layouts and visual mockups.</p>
-                            <button class="btn p-2 px-4"
-                                style="background-color:#fff; border: 1px solid #1aa7ec; color: #1aa7ec;">Patient
-                                Login</button>
-                        </div>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-4 col-12 float-start">
+                <h2 class="pt-5" style="color: #738f93;" class="text-uppercase">The Best Medical <br>Healthcare Services</h2>
+                <div class="row pt-3 mb-5">
+                    <div class="col-lg-6 col-md-12 col-12 my-5">
+                        <h5 style="font-weight: 800" ;>For Doctors</h5>
+                        <p>Lorem ipsum is placeholder text commonly used in the graphic, print,
+                            and publishing industries for previewing layouts and visual mockups.</p>
+                        <a href="../doctor-login/"><button class="btn p-2 px-4" style="background-color:#1aa7ec; color: #fff;">Doctor
+                            Login</button></a>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-12 my-5">
+                        <h5 style="font-weight: 800" ;>For Patients</h5>
+                        <p>Lorem ipsum is placeholder text commonly used in the graphic, print,
+                            and publishing industries for previewing layouts and visual mockups.</p>
+                        <button class="btn p-2 px-4"
+                            style="background-color:#fff; border: 1px solid #1aa7ec; color: #1aa7ec;">Patient
+                            Login</button>
                     </div>
                 </div>
-                <div class="col-6 ps-5 text-end d-none d-sm-block">
-                    <img src="{% static 'images/dp-vec2.webp' %}" class="img-fluid">
-                </div>
+            </div>
+            <div class="col-lg-6 col-md-8 col-12 ps-5 pt-5 d-none d-md-block float-end">
+                <img src="{% static 'images/dp-vec2.webp' %}" class="img-fluid">
             </div>
         </div>
-        </div>
-        </div>
-    </section>
+    </div>
+    </div>
+    </div>
+</section>
 {% endblock %}

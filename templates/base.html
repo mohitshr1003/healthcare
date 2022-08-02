@@ -10,20 +10,23 @@
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
 
+</head>
 <body>
     <!-- <div class="col-12 fixed-top"><img src="{% static 'images/strip.png' %}" class="img-fluid w-100" style="height:60px;"></div> -->
-    <div class="col-12" style="background-color:#1aa7ec;">
+    <!-- <div class="col-12" style="background-color:#1aa7ec;">
         <div class="container text-end text-white py-1"><i class="fa fa-mobile" aria-hidden="true"></i> 9876 543210 | <i class="fa fa-phone" aria-hidden="true"></i> 0161 5874 98</div>
-    </div>
-    <header class="sticky-top bg-white">
+    </div> -->
+    <header id="header" class="sticky-top bg-white" style=" transition: box-shadow 0.25s cubic-bezier(0.32, 0.01, 0, 1);">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-12"><img src="{% static 'images/healthcare-logo.png' %}"
-                        class="img-fluid logo"></div>
-                <div class="col-lg-9 d-none d-sm-block text-end pt-3">
-                    <button class="btn text-light mt-2 p-2 px-3" style="border:0px; background:#1aa7ec;" href="#">
+            <div class="row pt-3">
+                <div class="col-lg-3 col-md-4 col-sm-5 col-8">
+                    <img src="{% static 'images/healthcare-logo.png' %}" class="img-fluid logo">
+                </div>
+                <div class="col-lg-6 col-md-5 col-sm-3 col-0">
+                </div>
+                <div class="pt-3 col-lg-3 col-md-3 col-sm-4 col-6 d-none d-sm-block text-end">
+                    <button class="btn text-light p-2 px-3" href="#" style="background-color: #1aa7ec;">
                         Register Now
                     </button>
                 </div>
@@ -31,9 +34,10 @@
     </header>
     {% block body_content %}
     {% endblock %}
-    <footer class="fixed-bottom pt-3" style="background-color: #1aa7ec;">
-        <div class="container text-white" style="line-height: 7px;">
-        <p style="font-size: 0.82em;">Copyright © 2022 Healthcare Hospital  |  Privacy Policy</p>
+    <footer class="py-lg-5 py-md-0 pt-sm-5" style="bottom: 0; width:100%; line-height: 10px;">
+        <div class="container">
+        <p style="font-size: 0.82em;color: #576871;">Copyright © 2022 Healthcare Hospital</p>
+        <p style="font-size: 0.82em;color: #576871;">Privacy Policy</p>
         </div>
     </footer>
 </body>

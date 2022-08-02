@@ -13,3 +13,7 @@ p{
     font-size:16.005px !important;
     letter-spacing: 2px;
 }
+
+a{
+    text-decoration: none !important;
+}
