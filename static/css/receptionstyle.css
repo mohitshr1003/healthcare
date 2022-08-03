@@ -6,19 +6,8 @@
   box-shadow: 0 6px 12px 0 rgba(0,0,0,0.2);
   border-radius: 10px;
   box-sizing: border-box;
-}
-.card-one
-{
   background-image: url('/static/images/img7.jpg');
   background-repeat: no-repeat;
-  border-radius: 10px 0 0 10px;
-  background-size: cover;
-}
-.card-two
-{
-  background-image: url('/static/images/img4.jpg');
-  background-repeat: no-repeat;
-  border-radius: 10px 0 0 10px;
   background-size: cover;
 }
 .card-copy
@@ -31,15 +20,9 @@
   height: 100%;
   color: #738f93;
 }
-.card-copy-one
+option
 {
-  background-image: url('/static/images/img11.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-x: center ;
-  border-radius: 0 10px 10px 0;
-  height: 100%;
-  color: #738f93;
+  font-weight:lighter;
 }
 .form-control-label
 {
@@ -105,6 +88,7 @@ input, textarea, button
   
   .btn-block:hover,
   .btn-block:focus {
-    background-color: #82d8f0;
+    background-color: #1aa7ec;
     color: whitesmoke;
+    border: 3px solid whitesmoke;
   }
