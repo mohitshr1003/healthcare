@@ -16,9 +16,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
-  border-radius: 0 10px 10px 0;
   height: 100%;
   color: #738f93;
+}
+body
+{
+  background-image: none !important;
 }
 option
 {
