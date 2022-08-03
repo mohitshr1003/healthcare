@@ -1,0 +1,110 @@
+
+.card
+{
+  margin-bottom: 60px;
+  border: none !important;
+  box-shadow: 0 6px 12px 0 rgba(0,0,0,0.2);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.card-one
+{
+  background-image: url('/static/images/img7.jpg');
+  background-repeat: no-repeat;
+  border-radius: 10px 0 0 10px;
+  background-size: cover;
+}
+.card-two
+{
+  background-image: url('/static/images/img4.jpg');
+  background-repeat: no-repeat;
+  border-radius: 10px 0 0 10px;
+  background-size: cover;
+}
+.card-copy
+{
+  background-image: url('/static/images/img10.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  border-radius: 0 10px 10px 0;
+  height: 100%;
+  color: #738f93;
+}
+.card-copy-one
+{
+  background-image: url('/static/images/img11.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center ;
+  border-radius: 0 10px 10px 0;
+  height: 100%;
+  color: #738f93;
+}
+.form-control-label
+{
+  margin-bottom: 0;
+  color: rgba(0, 0, 0, 0.502);
+  font-size: large;
+  letter-spacing: 0.4mm;
+  
+}
+input, textarea, button
+{
+  padding: 8px 15px;
+  border-radius: 5px !important;
+  margin: 5px 0px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  font-size: 18px !important;
+  font-weight: 300
+  }
+ input:focus, textarea:focus
+ {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #00BCD4;
+    outline-width: 0;
+    font-weight: 400;
+  }
+  
+  .form-group a
+  {
+    text-decoration: none;
+    color: black;
+  }
+  
+
+  
+  /* btn-block CSS */
+  .btn-block {
+    background-color: white;
+    border: 3px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.502);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .btn-block:hover,
+  .btn-block:focus {
+    background-color: #82d8f0;
+    color: whitesmoke;
+  }
