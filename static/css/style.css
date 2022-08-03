@@ -17,3 +17,9 @@ p{
 a{
     text-decoration: none !important;
 }
+
+@media only screen and (max-width: 996px) {
+    footer {
+      background-color: white !important;
+    }
+  }

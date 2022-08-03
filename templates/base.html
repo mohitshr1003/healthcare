@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-<body>
+<body style="background-image: url({% static 'images/bg-login.png' %}); background-repeat: no-repeat; background-size: cover;">
     <!-- <div class="col-12 fixed-top"><img src="{% static 'images/strip.png' %}" class="img-fluid w-100" style="height:60px;"></div> -->
     <!-- <div class="col-12" style="background-color:#1aa7ec;">
         <div class="container text-end text-white py-1"><i class="fa fa-mobile" aria-hidden="true"></i> 9876 543210 | <i class="fa fa-phone" aria-hidden="true"></i> 0161 5874 98</div>
     </div> -->
-    <header id="header" class="sticky-top bg-white" style=" transition: box-shadow 0.25s cubic-bezier(0.32, 0.01, 0, 1);">
+    <header id="header" class="sticky-top" style=" transition: box-shadow 0.25s cubic-bezier(0.32, 0.01, 0, 1);">
         <div class="container">
             <div class="row pt-3">
                 <div class="col-lg-3 col-md-4 col-sm-5 col-8">
@@ -34,7 +34,7 @@
     </header>
     {% block body_content %}
     {% endblock %}
-    <footer class="py-lg-5 py-md-0 pt-sm-5" style="bottom: 0; width:100%; line-height: 10px;">
+    <footer class="py-md-0 pt-sm-5 fixed-bottom" style="bottom: 0; width:100%; line-height: 10px;">
         <div class="container">
         <p style="font-size: 0.82em;color: #576871;">Copyright © 2022 Healthcare Hospital</p>
         <p style="font-size: 0.82em;color: #576871;">Privacy Policy</p>
