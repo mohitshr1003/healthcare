@@ -7,3 +7,6 @@ def index(request):
 
 def doctor_login(request):
     return render(request, 'doctor-login.html')
+
+def patient_login(request):
+    return render(request, 'patient-login.html')
