@@ -32,12 +32,12 @@
                         <div style="background-color: white; border-radius: 5px; border: 2px solid #ccc;">
                             <ul class="form-control-label"
                                 style="list-style-type: none; display: inline; color: gray; font-weight: lighter; text-align: left;">
-                                <li class="col-6 ps-3"><input type="radio" id="gender" name="gender" value="Male"
+                                <li class="col-6 ps-3"><input type="radio" id="pgender" name="pgender" value="Male"
                                         required> Male </li>
-                                <li class="col-6 ps-3"><input type="radio" id="gender" name="gender" value="Female"
+                                <li class="col-6 ps-3"><input type="radio" id="pgender" name="pgender" value="Female"
                                         required> Female
                                 </li>
-                                <li class="col-6 ps-3 pb-4"><input type="radio" id="gender" name="gender"
+                                <li class="col-6 ps-3 pb-4"><input type="radio" id="pgender" name="pgender"
                                         value="Other" required> Other
                                 </li>
                             </ul>
@@ -46,12 +46,11 @@
 
                     <div class="col-12 pt-3">
                         <label class="form-control-label">DOB</label>
-                        <input class="form-control" type="date" id="dob" name="dob" required>
+                        <input class="form-control" type="date" id="pdob" name="pdob" required>
                     </div>
                     <div class="col-12 pt-3">
                         <label class="form-control-label">Contact</label>
-                        <input class="form-control" type="text" id="mob" name="mob" placeholder="[+code] contact number"
-                            pattern="[+]{1}[0-9]{11,14}" title="Example- +918767785903" required>
+                        <input class="form-control" type="text" id="pmob" name="pmob" placeholder="Contact Number" maxlength="10" minlength="10" required>
                     </div>
                     <div class="col-12 pt-3 text-end">
                         <button type="submit" id="subBtn" class="btn-block px-4 py-3">SUBMIT</button>

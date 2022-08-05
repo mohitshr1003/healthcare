@@ -1,6 +1,6 @@
 from django.db import models
-
 class PatientDetails(models.Model):
+
     patient_name = models.CharField(max_length=30, null=True)
     patient_id = models.CharField(max_length=6, null=True)
     patient_gender = models.CharField(max_length=10, null=True)
