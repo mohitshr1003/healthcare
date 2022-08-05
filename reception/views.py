@@ -3,6 +3,8 @@ import string as s
 import random
 from .models import *
 from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib.auth.hashers import make_password
 
 
 # Create your views here.
@@ -24,7 +26,8 @@ def reception(request):
                 )
             )
     )
-
+    print(p_id)
+    print(p_password)
     if(request.method == 'POST'):
         p_name = request.POST.get('pname')
         p_gender = request.POST.get('pgender')
@@ -37,10 +40,14 @@ def reception(request):
             patient_gender = p_gender,
             patient_phone = p_mob,
             patient_dob = p_dob,
-            patient_password = p_password
+            patient_password = make_password(p_password)
         )
-        patient_registration.save()
-        messages.success(request, f'Patient account is created successfully')
+        user = User.objects.create_user(
+            p_id, 
+            None, 
+            p_password
+            )
+        user.save()   
     return render(request, 'reception.html')
 
 def register_doctor(request):
