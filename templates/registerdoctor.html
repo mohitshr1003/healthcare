@@ -28,33 +28,33 @@
                     {% csrf_token %}
                         <div class="form-group col-12 flex-column d-flex pt-3">
                             <label class="form-control-label">Doctor's name</label>
-                            <input type="text" id="fname" name="fname" placeholder="Enter doctor's name" pattern="(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)" title="Example- Ankit Kumar" required>
+                            <input type="text" id="dname" name="dname" placeholder="Enter doctor's name" pattern="(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)" title="Example- Ankit Kumar" required>
                         </div>
                         <div class="form-group col-12 flex-column d-flex py-3">
                             <label class="form-control-label">Upload image</label>
-                            <input style="background-color:white " type="file" id="img" name="img" accept="image/*" required>
+                            <input style="background-color:white " type="file" id="dimg" name="dimg" accept="image/*" required>
                         </div>
                         <div class="form-group col-12 flex-column d-flex">
                             <label class="form-control-label">Date of birth</label>
-                            <input class="mb-3" type="date" id="dob" name="dob" required>
+                            <input class="mb-3" type="date" id="ddob" name="ddob" required>
                         </div>
                         <div class="form-group col-12 flex-column d-flex">
                             <label class="form-control-label" id="labelgender">Gender</label>
                             <div style="background-color: white; border-radius: 5px; border: 2px solid #ccc;">
                                     <ul class="form-control-label" style="list-style-type: none; display: inline; color: gray; font-weight: lighter; text-align: left;">
-                                        <li class="col-6 ps-3"><input type="radio" id="gender" name="gender" value="Male"  required> Male </li>
-                                        <li class="col-6 ps-3"><input type="radio" id="gender" name="gender" value="Female"  required> Female </li>
-                                        <li class="col-6 ps-3 pb-4"><input type="radio" id="gender" name="gender" value="Other"  required> Other </li>
+                                        <li class="col-6 ps-3"><input type="radio" id="dgender" name="dgender" value="Male"  required> Male </li>
+                                        <li class="col-6 ps-3"><input type="radio" id="dgender" name="dgender" value="Female"  required> Female </li>
+                                        <li class="col-6 ps-3 pb-4"><input type="radio" id="dgender" name="dgender" value="Other"  required> Other </li>
                                     </ul>
                             </div>
                         </div>
                         <div class="form-group col-12 flex-column d-flex py-3">    
                             <label class="form-control-label">Contact</label>
-                            <input type="text" id="mob" name="mob" placeholder="[+code] contact number" pattern="[+]{1}[0-9]{11,14}" title="Example- +918767785903" required>
+                            <input type="text" id="dmob" name="dmob" placeholder="contact number" maxlength="10" minlength="10" required>
                         </div>
                         <div class="form-group col-12 flex-column d-flex">
                             <label class="form-control-label">Address</label>
-                            <input class="mb-3" type="text" id="address" name="address" placeholder="Enter Address" required>
+                            <input class="mb-3" type="text" id="daddress" name="daddress" placeholder="Enter Address" required>
                         </div>
                         <div class="row justify-content-between py-3">
                             <div class="form-group col-12 flex-column d-flex">
@@ -76,7 +76,7 @@
                         <div class="form-group col-12 flex-column d-flex">
                             <label class="form-control-label">Qualification</label>
                             <div class="form-control" style="background-color: white; border-radius: 5px; border: 2px solid #ccc;">
-                                <select required class="dropdown" title="Select atleast one option" name="department" id="department" style="border:0; width: 92%; border-radius: 5px; padding-top: 5px; padding-bottom: 5px; font-size: 18px !important; font-weight: 300">
+                                <select required class="dropdown" title="Select atleast one option" name="qualification" id="qualification" style="border:0; width: 92%; border-radius: 5px; padding-top: 5px; padding-bottom: 5px; font-size: 18px !important; font-weight: 300">
                                     <option value="" disabled selected>[ Mulitple selection allowed ]</option>
                                     <option value="MBBS">Bachelor of Medicine and surgery (MBBS) </option>             
                                     <option value="MD">Doctor of Medicine (MD) </option>

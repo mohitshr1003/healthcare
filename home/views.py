@@ -8,6 +8,16 @@ def index(request):
     return render(request, 'index.html')
 
 def doctor_login(request):
+
+    # p_login = PatientDetails
+    if(request.method == "POST"): 
+        username = request.POST.get("doctor_id") 
+        password = request.POST.get("psw")
+
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect(index)
     return render(request, 'doctor-login.html')
 
 def patient_login(request):
