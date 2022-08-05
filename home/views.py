@@ -17,9 +17,8 @@ def patient_login(request):
         username = request.POST.get("patient_id") 
         password = request.POST.get("psw")
 
-    user = authenticate(username=username, password=password)
-    if user is not None:
-        login(request, user)
-        return redirect(index)
-    else:
-        return render(request, 'patient-login.html')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect(index)
+    return render(request, 'patient-login.html')
