@@ -1,3 +1,0 @@
-# healthcare
-
-Please check models
