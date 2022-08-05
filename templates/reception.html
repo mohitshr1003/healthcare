@@ -1,72 +1,69 @@
 {% extends 'base.html' %}
 {% load static %}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/receptionstyle.css' %}">
-{% endblock %}
-
 {% block body_content %}
-    <div style="background-color: rgba(0, 0, 0, 0.02);">
-        <div class="container py-5 mt-2">
-            <div class="row text-center">
-                <h1 class="text-uppercase display-6">Healthcare Hospital Reception</h1>
-                <ul class="d-flex justify-content-center" style="list-style-type: none;">
-                    <li class="text-dark">
-                        <a href="../">Register New Patient</a>&numsp;|
-                        <a href="../reception/doctor/">Register New Doctor</a>
-                    </li>
-                </ul>
-            </div>
+<div class="col-12">
+    <div class="container py-5 mt-2">
+        <div class="row text-center">
+            <h1 class="text-uppercase">Healthcare Hospital Reception</h1>
+            <ul class="d-flex justify-content-center" style="list-style-type: none;">
+                <li class="text-dark">
+                    <a href="../">Register New Patient</a>&numsp;|
+                    <a href="../reception/doctor/">Register New Doctor</a>
+                </li>
+            </ul>
         </div>
     </div>
-    <div class="container mt-5">
-        <div class="row d-flex">
-            <div class="col-xl-5 col-lg-5 col-md-6 col-12 text-start card">
-                <div class="pb-5">     
-                  <form id="patientRegForm" method="post" enctype="multipart/form-data">
+</div>
+<section class="mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-12 p-5 text-start pr-div">
+                <form method="post">
                     {% csrf_token %}
-                    <div class="p-5">
-                        <div class="form-group col-lg-12 col-sm-12 flex-column d-flex">
-                                <label class="form-control-label px-3">Patient's name</label>
-                                <input type="text" id="pname" name="pname" placeholder="Enter patient's name" pattern="(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)" title="Example- Ankit Kumar" required>
+                    <div class="col-12 pt-3">
+                        <label class="form-control-label">Patient's name</label>
+                        <input class="form-control" type="text" id="pname" name="pname" placeholder="Enter patient's name"
+                            pattern="(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)" title="Example- Ankit Kumar" required>
+                    </div>
+
+                    <div class="col-12 pt-3">
+                        <label class="form-control-label" id="labelgender">Gender</label>
+                        <div style="background-color: white; border-radius: 5px; border: 2px solid #ccc;">
+                            <ul class="form-control-label"
+                                style="list-style-type: none; display: inline; color: gray; font-weight: lighter; text-align: left;">
+                                <li class="col-6 ps-3"><input type="radio" id="pgender" name="pgender" value="Male"
+                                        required> Male </li>
+                                <li class="col-6 ps-3"><input type="radio" id="pgender" name="pgender" value="Female"
+                                        required> Female
+                                </li>
+                                <li class="col-6 ps-3 pb-4"><input type="radio" id="pgender" name="pgender"
+                                        value="Other" required> Other
+                                </li>
+                            </ul>
                         </div>
-                        <div class="form-group col-lg-12 col-sm-12 flex-column d-flex py-3">
-                                <label class="form-control-label px-3" id="labelgender">Gender</label>
-                                <div style="background-color: white; border-radius: 5px; border: 2px solid #ccc;">
-                                    <ul class="form-control-label" style="list-style-type: none; display: inline; color: gray; font-weight: lighter; text-align: left;">
-                                        <li class="col-6 ps-3"><input type="radio" id="gender" name="gender" value="Male"  required> Male </li>
-                                        <li class="col-6 ps-3"><input type="radio" id="gender" name="gender" value="Female"  required> Female
-                                        </li>
-                                        <li class="col-6 ps-3 pb-4"><input type="radio" id="gender" name="gender" value="Other"  required> Other
-                                        </li>
-                                    </ul>
-                                </div>
-                        </div>
-                        <div class="form-group col-lg-12 col-sm-12 flex-column d-flex py-3">
-                                <label class="form-control-label px-3">Date of birth</label>
-                                <input class="mb-3" type="date" id="dob" name="dob" required>
-                                <label class="form-control-label px-3">Contact</label>
-                                <input type="text" id="mob" name="mob" placeholder="[+code] contact number" pattern="[+]{1}[0-9]{11,14}" title="Example- +918767785903" required>
-                        </div>
-                    
-                         <div class=" text-left py-3">
-                                <div style="float: right;">
-                                    <button type="submit" id="subBtn" class="btn-block px-4 py-3">SUBMIT</button>
-                                </div>
-                        </div>
-                        
+                    </div>
+
+                    <div class="col-12 pt-3">
+                        <label class="form-control-label">DOB</label>
+                        <input class="form-control" type="date" id="pdob" name="pdob" required>
+                    </div>
+                    <div class="col-12 pt-3">
+                        <label class="form-control-label">Contact</label>
+                        <input class="form-control" type="text" id="pmob" name="pmob" placeholder="Contact Number" maxlength="10" minlength="10" required>
+                    </div>
+                    <div class="col-12 pt-3 text-end">
+                        <button type="submit" id="subBtn" class="btn-block px-4 py-3">SUBMIT</button>
                     </div>
                 </form>
-                </div>
+
             </div>
-            
-            <div class="col-xl-7 col-lg-7 col-md-6 col-0">
-                <div class="text-center card-copy">
-                </div>
+
+            <div class="col-3">
             </div>
         </div>
     </div>
-    <div style="height: 100px;">
-    
-    </div>
+
+</section>
+
 {% endblock %}

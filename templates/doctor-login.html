@@ -4,8 +4,9 @@
 <div class="col-12 mt-4" style="height: 550px;">
     <div class="container h-100">
         <div class="row h-100">
-            <div class="col-lg-4 h-75 mt-3 text-center p-5" style="box-shadow: rgb(50 50 93 / 25%) 0px 10px 57px -12px, rgb(0 0 0 / 30%) 0px 11px 38px -30px, rgb(10 37 64 / 35%) 0px -2px 6px 0px inset; border-radius: 0.45rem;">
-                <h2 style="font-weight: 700" ;>Doctor Login</h2>
+            <div class="col-lg-4 h-75 mt-3 text-center p-5" style="box-shadow: rgb(50 50 93 / 25%) 0px 10px 57px -12px, rgb(0 0 0 / 30%) 0px 11px 38px -30px, rgb(10 37 64 / 35%) 0px -2px 6px 0px inset;
+            border-radius: 13px;">
+                <h2 style="color:#1aa7ec; font-size:3rem"><i class="fa-solid fa-user-doctor"></i></h2>
                 <form method="post">
                     {% csrf_token %}
                     <div class="col-12 pt-3">
@@ -29,6 +30,12 @@
                     </div>
                 </form>
 
+            </div>
+            <div class="col-8 text-end px-5 d-none d-sm-block">
+                <div class="container">
+                    <img src="{% static 'images/gp5.jpg' %}" class="img-fluid" style="border-top-left-radius: 60px;
+                    border-bottom-right-radius: 60px; box-shadow: 0 -1px 10px #ccc;">
+                    </div>
             </div>
         </div>
     </div>
