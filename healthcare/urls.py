@@ -21,3 +21,5 @@ urlpatterns = [
     path('', include('home.urls')),
     path('', include('reception.urls')),
 ]
+
+admin.site.site_header = 'Healthcare Hospital'
