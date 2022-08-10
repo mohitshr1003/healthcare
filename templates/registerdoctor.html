@@ -13,7 +13,7 @@
             <ul class="d-flex justify-content-center" style="list-style-type: none;">
                 <li class="text-dark">
                     <a href="../">Register New Patient</a>&numsp;|
-                    <a href="../reception/doctor/">Register New Doctor</a>
+                    <a href="/reception/doctor/">Register New Doctor</a>
                 </li>
             </ul>
         </div>
@@ -21,51 +21,47 @@
 </div>
 <section class="mb-5">
     <div class="container">
-        <div class="row d-flex">
+        <div class="row">
             <div class="col-3"></div>
-            <div class="col-xl-6 col-lg-6 col-md-6 col-12 text-start pr-div">
-                <div class="pb-5">     
-                  <form id="doctorRegForm" method="post" enctype="multipart/form-data">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-12 p-5 text-start pr-div"> 
+                <form id="doctorRegForm" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div class="p-5">
-                        <div class="form-group col-lg-12 col-sm-12 flex-column d-flex">
+                        <div class="form-group col-12 flex-column d-flex pt-3">
                             <label class="form-control-label">Doctor's name</label>
-                            <input type="text" id="fname" name="fname" placeholder="Enter doctor's name" pattern="(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)" title="Example- Ankit Kumar" required>
+                            <input type="text" id="dname" name="dname" placeholder="Enter doctor's name" pattern="(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)" title="Example- Ankit Kumar" required>
                         </div>
-                        <div class="form-group col-sm-12 flex-column d-flex py-3">
+                        <div class="form-group col-12 flex-column d-flex py-3">
                             <label class="form-control-label">Upload image</label>
-                            <input style="background-color:white " type="file" id="img" name="img" accept="image/*" required>
+                            <input style="background-color:white " type="file" id="dimg" name="dimg" accept="image/*" required>
                         </div>
-                        <div class="form-group col-lg-12 col-sm-12 flex-column d-flex">
-                            <label class="form-control-label px-3">Date of birth</label>
-                            <input class="mb-3" type="date" id="dob" name="dob" required>
+                        <div class="form-group col-12 flex-column d-flex">
+                            <label class="form-control-label">Date of birth</label>
+                            <input class="mb-3" type="date" id="ddob" name="ddob" required>
                         </div>
-                        <div class="form-group col-lg-12 col-sm-12 flex-column d-flex">
+                        <div class="form-group col-12 flex-column d-flex">
                             <label class="form-control-label" id="labelgender">Gender</label>
                             <div style="background-color: white; border-radius: 5px; border: 2px solid #ccc;">
                                     <ul class="form-control-label" style="list-style-type: none; display: inline; color: gray; font-weight: lighter; text-align: left;">
-                                        <li class="col-6 ps-3"><input type="radio" id="gender" name="gender" value="Male"  required> Male </li>
-                                        <li class="col-6 ps-3"><input type="radio" id="gender" name="gender" value="Female"  required> Female
-                                        </li>
-                                        <li class="col-6 ps-3 pb-4"><input type="radio" id="gender" name="gender" value="Other"  required> Other
-                                        </li>
+                                        <li class="col-6 ps-3"><input type="radio" id="dgender" name="dgender" value="Male"  required> Male </li>
+                                        <li class="col-6 ps-3"><input type="radio" id="dgender" name="dgender" value="Female"  required> Female </li>
+                                        <li class="col-6 ps-3 pb-4"><input type="radio" id="dgender" name="dgender" value="Other"  required> Other </li>
                                     </ul>
                             </div>
                         </div>
-                        <div class="form-group col-lg-12 col-sm-12 flex-column d-flex py-3">    
+                        <div class="form-group col-12 flex-column d-flex py-3">    
                             <label class="form-control-label">Contact</label>
-                            <input type="text" id="mob" name="mob" placeholder="[+code] contact number" pattern="[+]{1}[0-9]{11,14}" title="Example- +918767785903" required>
+                            <input type="text" id="dmob" name="dmob" placeholder="contact number" maxlength="10" minlength="10" required>
                         </div>
-                        <div class="form-group col-lg-12 col-sm-12 flex-column d-flex">
+                        <div class="form-group col-12 flex-column d-flex">
                             <label class="form-control-label">Address</label>
-                            <input class="mb-3" type="text" id="address" name="address" placeholder="Enter Address" required>
+                            <input class="mb-3" type="text" id="daddress" name="daddress" placeholder="Enter Address" required>
                         </div>
                         <div class="row justify-content-between py-3">
-                            <div class="form-group col-sm-12 flex-column d-flex">
+                            <div class="form-group col-12 flex-column d-flex">
                                 <label class="form-control-label">Department</label>
-                                <div style="background-color: white; border-radius: 5px; border: 2px solid #ccc;">
-                                    <select required class="dropdown" title="Select any one option" name="department" id="department" style="border:0; width: 92%; border-radius: 5px; padding-top: 10px; padding-bottom: 10px; font-size: 18px !important; font-weight: 300">
-                                        <option value="" selected>Select</option>
+                                <div class="form-control" style="background-color: white; border-radius: 5px; border: 2px solid #ccc;">
+                                    <select required class="dropdown" title="Select any one option" name="department" id="department" style="border:0; width: 92%; border-radius: 5px; padding-top: 5px; padding-bottom: 5px; font-size: 18px !important; font-weight: 300">
+                                        <option value="" selected>  Select</option>
                                         <option value="ENT">ENT department</option>             
                                         <option value="CCU">Coronary care unit</option>
                                         <option value="AMU">Acute medical unit</option>
@@ -77,11 +73,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-lg-12 col-sm-12 flex-column d-flex">
+                        <div class="form-group col-12 flex-column d-flex">
                             <label class="form-control-label">Qualification</label>
                             <div class="form-control" style="background-color: white; border-radius: 5px; border: 2px solid #ccc;">
-                                <select required class="dropdown" title="Select atleast one option" name="department" id="department" style="border:0; width: 92%; border-radius: 5px; padding-top: 10px; padding-bottom: 10px; font-size: 18px !important; font-weight: 300">
-                                    <option value="" disabled>[ Mulitple selection allowed ]</option>
+                                <select required class="dropdown" title="Select atleast one option" name="qualification" id="qualification" style="border:0; width: 92%; border-radius: 5px; padding-top: 5px; padding-bottom: 5px; font-size: 18px !important; font-weight: 300">
+                                    <option value="" disabled selected>[ Mulitple selection allowed ]</option>
                                     <option value="MBBS">Bachelor of Medicine and surgery (MBBS) </option>             
                                     <option value="MD">Doctor of Medicine (MD) </option>
                                     <option value="DM">Doctorate of Medicine (DM) </option>
@@ -89,17 +85,16 @@
                             </div>
                         </div>
                         
-                        <div class=" text-left py-3">
-                            <div style="float: right;">
+                        <div class="form-group col-12 pt-3 text-end">
                                 <button type="submit" id="subBtn" class="btn-block px-4 py-3">SUBMIT</button>
-                            </div>
-                        </div>     
-                    </div>
+                        </div>
                 </form>
-                </div>
             </div>
             <div class="col-3"></div>
         </div>
+    </div>
+    <div style="height:100px;">
+
     </div>
 </section>
 {% endblock %}

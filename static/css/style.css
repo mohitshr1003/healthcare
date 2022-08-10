@@ -111,7 +111,8 @@ input, textarea, button
   }
 
 
-@media only screen and (max-width: 996px) {
+
+  @media only screen and (max-width: 996px) {
     footer {
       background-color: white !important;
     }
