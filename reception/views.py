@@ -7,12 +7,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 
 
-# Create your views here.
-def reception(request):
-    
+def p_gen_id_pswd():
     # for USER ID
     N = 3
-    alpha_id = random.choices(s.ascii_uppercase, k=N)
+    alpha_id = random.choices(s.ascii_uppercase, k=N)  # ABH254
     num_id = random.choices(s.digits, k=N)
     p_id = str(''.join(alpha_id + num_id))
 
@@ -26,36 +24,55 @@ def reception(request):
                 )
             )
     )
-    print(p_id)
-    print(p_password)
+    check_id = User.objects.filter(username=p_id)
+
+    if check_id:
+        p_gen_id_pswd()
+
+    return p_id,p_password
+
+def reception(request):
 
     if(request.method == 'POST'):
+
+        p_id, p_pass = p_gen_id_pswd()
+        print(p_id)
+        print(p_pass)
+
+        user = User.objects.create_user(
+            p_id,
+            None,
+            p_pass
+            )
+
         p_name = request.POST.get('pname')
         p_gender = request.POST.get('pgender')
         p_dob = request.POST.get('pdob')
         p_mob = request.POST.get('pmob')
 
-        patient_registration = PatientDetails(
-            patient_name = p_name,
-            patient_id = p_id,
-            patient_gender = p_gender,
-            patient_phone = p_mob,
-            patient_dob = p_dob,
-            patient_password = make_password(p_password)
+        patient_registration = PatientDetail(
+            patient_name=p_name,
+            patient_id=user,
+            patient_gender=p_gender,
+            patient_phone=p_mob,
+            patient_dob=p_dob,
+            patient_password=make_password(p_pass)
         )
         patient_registration.save()
-        user = User.objects.create_user(
-            p_id, 
-            None, 
-            p_password
-            )
-        user.save()   
+
+        user_role = UserRole(
+            user = user,
+            role = "Patient"
+        )
+        user_role.save()
+
     return render(request, 'reception.html')
 
-def register_doctor(request):
+
+def d_gen_id_pswd():
     # for DOCTOR ID
     N = 3
-    alpha_id = list('Doc')
+    alpha_id = list('DOC')
     num_id = random.choices(s.digits, k=N)
     d_id = str(''.join(alpha_id + num_id))
 
@@ -69,10 +86,28 @@ def register_doctor(request):
                 )
             )
     )
-    print(d_id)
-    print(d_password)
+
+    check_id = User.objects.filter(username=d_id)
+
+    if check_id:
+        d_gen_id_pswd()
+
+    return d_id, d_password
+
+def register_doctor(request):
 
     if (request.method=="POST"):
+
+        d_id, d_password = d_gen_id_pswd()
+        print(d_id)
+        print(d_password)
+
+        user = User.objects.create_user(
+            d_id, 
+            None, 
+            d_password
+            )
+        
         d_name = request.POST.get('dname')
         d_image = request.FILES.get('dimg')
         d_dob = request.POST.get('ddob')
@@ -83,7 +118,7 @@ def register_doctor(request):
         d_qualification = request.POST.get('qualification')
 
         doctor_registration = DoctorDetail(
-            doctor_id = d_id,
+            doctor_id = user,
             doctor_name = d_name,
             doctor_image = d_image,
             doctor_dob = d_dob,
@@ -91,13 +126,14 @@ def register_doctor(request):
             doctor_phone = d_phone,
             doctor_address = d_address,
             doctor_department = d_department,
-            doctor_qualification = d_qualification
+            doctor_qualification = d_qualification,
+            doctor_password = make_password(d_password)
         )
         doctor_registration.save()
-        user = User.objects.create_user(
-            d_id, 
-            None, 
-            d_password
-            )
-        user.save()
+
+        user_role = UserRole(
+            user = user,
+            role = "Doctor"
+        )
+        user_role.save()
     return render(request, 'registerdoctor.html')
