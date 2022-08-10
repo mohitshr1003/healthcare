@@ -6,50 +6,54 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 
+def generate_id_password():
+    # for USER ID
+        N = 3
+        alpha_id = random.choices(s.ascii_uppercase, k=N)
+        num_id = random.choices(s.digits, k=N)
+        p_id = str(''.join(alpha_id + num_id))
+
+    # for USER PASSWORD
+        M = 8
+
+        p_password = str(
+            ''.join(
+                random.choices(
+                    s.ascii_letters + s.digits + "#$%@!(){}[]-", k=M
+                    )
+                )
+        )
+        check_id = User.objects.filter(username=p_id)
+        if check_id:
+            generate_id_password()
+
+        return p_id, p_password
 
 # Create your views here.
 def reception(request):
-    
-    # for USER ID
-    N = 3
-    alpha_id = random.choices(s.ascii_uppercase, k=N)
-    num_id = random.choices(s.digits, k=N)
-    p_id = str(''.join(alpha_id + num_id))
-
-    # for USER PASSWORD
-    M = 8
-
-    p_password = str(
-        ''.join(
-            random.choices(
-                s.ascii_letters + s.digits + "#$%@!(){}[]-", k=M
-                )
-            )
-    )
-    print(p_id)
-    print(p_password)
 
     if(request.method == 'POST'):
+        p_id, p_password = generate_id_password()
+        user = User.objects.create_user(
+            username = p_id,
+            password = p_password
+            )
         p_name = request.POST.get('pname')
         p_gender = request.POST.get('pgender')
         p_dob = request.POST.get('pdob')
         p_mob = request.POST.get('pmob')
 
-        patient_registration = PatientDetails(
+        patient_registration = PatientProfile(
             patient_name = p_name,
-            patient_id = p_id,
+            patient_id = User.username,
             patient_gender = p_gender,
             patient_phone = p_mob,
             patient_dob = p_dob,
-            patient_password = make_password(p_password)
+            patient_password = User.password
         )
         patient_registration.save()
-        user = User.objects.create_user(
-            p_id, 
-            None, 
-            p_password
-            )
-        user.save()   
+        
+ 
     return render(request, 'reception.html')
 
 def register_doctor(request):

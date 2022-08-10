@@ -1,8 +1,10 @@
 from django.db import models
-class PatientDetails(models.Model):
+from django.contrib.auth.models import AbstractUser,User
 
+class PatientProfile(AbstractUser):
+
+    patient_id = models.ForeignKey(User,on_delete=models.CASCADE)
     patient_name = models.CharField(max_length=30, null=True)
-    patient_id = models.CharField(max_length=6, null=True)
     patient_gender = models.CharField(max_length=10, null=True)
     patient_phone = models.IntegerField(null=True)
     patient_dob = models.DateField(max_length=200, null=True)
@@ -11,8 +13,15 @@ class PatientDetails(models.Model):
     def __str__(self):
         return str(self.patient_id)
 
-class DoctorDetail(models.Model):
-    doctor_id = models.CharField(max_length=6, unique=True)
+class UserRole(AbstractUser):
+    user_id = models.ForeignKey(User,on_delete=models.CASCADE)
+    user_role = models.CharField(max_length=10)
+
+    def __str__(self):
+        return str(self.user_id)
+
+class DoctorProfile(AbstractUser):
+    doctor_id = models.ForeignKey(User,on_delete=models.CASCADE)
     doctor_name = models.CharField(max_length=30)
     doctor_image = models.ImageField(upload_to='doctor_img/')
     doctor_dob = models.DateField()
