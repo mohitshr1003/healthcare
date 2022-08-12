@@ -72,9 +72,9 @@ def reception(request):
 def d_gen_id_pswd():
     # for DOCTOR ID
     N = 3
-    alpha_id = list('DOC')
+    # alpha_id = list('DOC')
     num_id = random.choices(s.digits, k=N)
-    d_id = str(''.join(alpha_id + num_id))
+    d_id = str(''.join(list("DOC") + num_id))
 
     # for DOCTOR PASSWORD
     M = 10
