@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_content %}
+<div class="col-12 mt-4" style="height: 550px;">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-lg-4 h-75 mt-3 text-center p-5" style="box-shadow: rgb(50 50 93 / 25%) 0px 10px 57px -12px, rgb(0 0 0 / 30%) 0px 11px 38px -30px, rgb(10 37 64 / 35%) 0px -2px 6px 0px inset;
+            border-radius: 13px;">
+                <h2 style="color:#1aa7ec; font-size:3rem"><i class="fa fa-thermometer-full" aria-hidden="true"></i></h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="col-12 pt-3">
+                        <input type="text" class="form-control" name="patient_id" placeholder="ID" required="">
+                    </div>
+                    <div class="col-12 pt-3">
+                        <input type="password" class="form-control" name="psw" placeholder="Password" required="">
+                    </div>
+
+                    <div class="col-12 pt-3 text-danger" style="font-size: 12px;">
+                    </div>
+                    <div class="col-12 pt-3">
+                        <button class="btn text-light form-control" style="background-color: #1aa7ec;"> LOGIN
+                        </button>
+                    </div>
+
+                    <div class="col-12 pt-3">
+                        <span style="font-size: 12px; color: #878787;">
+                            <a href="#"> Forgot Password?</a>
+                        </span>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="col-8 text-end px-5 d-none d-sm-block">
+                <div class="container">
+                    <img src="{% static 'images/gp.webp' %}" class="img-fluid" style="border-top-left-radius: 60px;
+                    border-bottom-right-radius: 60px; box-shadow: 0 -1px 10px #ccc;">
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
