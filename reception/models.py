@@ -1,13 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
-class PatientDetails(models.Model):
+class PatientDetail(models.Model):
 
-    patient_name = models.CharField(max_length=30, null=True)
-    patient_id = models.CharField(max_length=6, null=True)
-    patient_gender = models.CharField(max_length=10, null=True)
-    patient_phone = models.IntegerField(null=True)
-    patient_dob = models.DateField(max_length=200, null=True)
-    patient_password = models.CharField(max_length=50, null=True)
+    patient_name = models.CharField(max_length=30)
+    patient_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    patient_gender = models.CharField(max_length=10)
+    patient_phone = models.IntegerField()
+    patient_dob = models.DateField()
+    patient_password = models.CharField(max_length=100)
 
     def __str__(self):
         return str(self.patient_id)
@@ -22,7 +22,7 @@ class DoctorDetail(models.Model):
     doctor_address = models.CharField(max_length=200)
     doctor_department = models.CharField(max_length=100)
     doctor_qualification = models.CharField(max_length=100)
-    doctor_password = models.CharField(max_length=100, null=True)
+    doctor_password = models.CharField(max_length=100)
      
     def __str__(self):
         return str(self.doctor_id)

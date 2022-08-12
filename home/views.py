@@ -34,11 +34,11 @@ def patient_login(request):
 
         user = authenticate(username=username, password=password)
         if user is not None:
-            login(request, user)
-            return redirect(index)
-        else:
-            return render(request, 'patient-login.html')
-
+            user_role = UserRole.objects.filter(user=user).first()
+            role = user_role.role
+            if role == "Patient":
+                login(request, user)
+                return redirect(patient_dashboard)
     return render(request, 'patient-login.html')
 
 @login_required(login_url='/doctor-login')
