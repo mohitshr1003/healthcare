@@ -5,6 +5,8 @@ from .models import *
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
+from django.conf import settings
+from django.core.mail import send_mail
 
 
 def p_gen_id_pswd():
@@ -29,6 +31,7 @@ def p_gen_id_pswd():
     if check_id:
         p_gen_id_pswd()
 
+
     return p_id,p_password
 
 def reception(request):
@@ -36,6 +39,11 @@ def reception(request):
     if(request.method == 'POST'):
 
         p_id, p_pass = p_gen_id_pswd()
+        subject = 'Login credentials'
+        message = f'Hi your username: {p_id} and password: {p_pass} thank you for registering in geeksforgeeks.'
+        email_from = settings.EMAIL_HOST_USER
+        recipient_list = ['rimaljeetjagdeo@gmail.com']
+        send_mail( subject, message, email_from, recipient_list )
         print(p_id)
         print(p_pass)
 
