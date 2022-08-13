@@ -11,16 +11,18 @@ def index(request):
 
 def doctor_login(request):
 
+    data = {}
     # p_login = PatientDetails
     if(request.method == "POST"): 
         username = request.POST.get("doctor_id") 
         password = request.POST.get("psw")
-
+        
         user = authenticate(username=username, password=password)
         if user is not None:
             user_role = UserRole.objects.filter(user=user).first()
             role = user_role.role
             if role == "Doctor":
+
                 login(request, user)
                 return redirect(doctor_dashboard)
     return render(request, 'doctor-login.html')
