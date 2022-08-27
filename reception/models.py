@@ -12,7 +12,7 @@ class PatientDetail(models.Model):
     def __str__(self):
         return str(self.patient_id)
 
-class Department(models.Model):
+class DepartmentDetail(models.Model):
     department_name = models.CharField(max_length=30)
 
     def __str__(self):
@@ -32,6 +32,7 @@ class DoctorDetail(models.Model):
      
     def __str__(self):
         return str(self.doctor_id)
+
 
 class UserRole(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

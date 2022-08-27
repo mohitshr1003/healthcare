@@ -51,6 +51,11 @@
                         </div>
                     </div>
                     <div class="form-group col-12 flex-column d-flex pt-3">
+                        <table id="tabid">
+
+                        </table>
+                    </div>
+                    <div class="form-group col-12 flex-column d-flex pt-3">
                         <label class="form-control-label">Contact</label>
                         <input type="text" id="pmob" name="pmob" placeholder="Contact Number" maxlength="10" minlength="10" required>
                     </div>
@@ -89,6 +94,21 @@ function(){
                 dep.html(op);
             }
         });
+        $('#dept').change(function(){
+            var department = $('#dept:selected').val();
+            $.ajax({
+                url: "http://127.0.0.1:8000/reception/doctor-list/?department="+department,
+                success: function(result){
+                    var table = $('#tabid');
+                    var tabdata = "<tr><th>Doctor name<th></tr>";
+                        $.each(result,function(i,data){
+                            tabdata = tabdata + "<tr><td>"+ data + "</td></tr>"
+                        });
+                        table.html(tabdata);
+                }
+            });
+        });
+
 
 });
 

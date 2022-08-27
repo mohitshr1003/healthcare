@@ -141,9 +141,21 @@ def register_doctor(request):
 
 
 def department_name(request):
-    data = Department.objects.all()
+    data = DepartmentDetail.objects.all()
     final_data = []
     for d in data:
         final_data.append(d.department_name)
     return JsonResponse(final_data, safe=False)
         
+def doctor_details(request):
+    get_dep = request.GET.get('department')
+    if get_dep:
+        doc_data = DoctorDetail.objects.filter(doctor_department=get_dep)
+    doc_list = []
+    if get_dep:
+        for i in doc_data:
+            doc = {}
+            doc['name']=i.doctor_name
+            doc_list.append(doc)
+    
+    return JsonResponse(doc_list,safe=False)
