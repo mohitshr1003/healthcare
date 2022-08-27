@@ -43,12 +43,21 @@
                         <input type="date" id="pdob" name="pdob" required>
                     </div>
                     <div class="form-group col-12 flex-column d-flex pt-3">
+                        <label class="form-control-label">Department</label>
+                        <div class="form-control" style="background-color: white; border-radius: 5px; border: 2px solid #ccc;">
+                        <select class="dropdown" id="dept" name="department" style="border:0; width: 92%; border-radius: 5px; padding-top: 5px; padding-bottom: 5px; font-size: 18px !important; font-weight: 300">
+                        
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-12 flex-column d-flex pt-3">
                         <label class="form-control-label">Contact</label>
                         <input type="text" id="pmob" name="pmob" placeholder="Contact Number" maxlength="10" minlength="10" required>
                     </div>
                     <div class="form-group col-12 pt-3 text-end">
                         <button type="submit" id="subBtn" class="btn-block px-4 py-3">SUBMIT</button>
                     </div>
+                    
                 </form>
 
             </div>
@@ -62,5 +71,27 @@
     </div>
 
 </section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+$(document).ready(
+function(){
+        $.ajax({
+            url: "http://127.0.0.1:8000/reception/department",
+            success: function(result){
+                var dep = $('#dept');
+                var op = '';
+                $.each(result,function(i,data){
+                    op = op + '<option>' + data + '</option>'
+                });
+                dep.html(op);
+            }
+        });
+
+});
+
+</script>
 
 {% endblock %}
