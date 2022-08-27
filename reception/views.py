@@ -5,7 +5,7 @@ from .models import *
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
-
+from django.http import JsonResponse
 
 def p_gen_id_pswd():
     # for USER ID
@@ -48,6 +48,7 @@ def reception(request):
         p_name = request.POST.get('pname')
         p_gender = request.POST.get('pgender')
         p_dob = request.POST.get('pdob')
+        p_dep = request.POST.get('department')
         p_mob = request.POST.get('pmob')
 
         patient_registration = PatientDetail(
@@ -72,9 +73,9 @@ def reception(request):
 def d_gen_id_pswd():
     # for DOCTOR ID
     N = 3
-    alpha_id = list('DOC')
+    # alpha_id = list('DOC')
     num_id = random.choices(s.digits, k=N)
-    d_id = str(''.join(alpha_id + num_id))
+    d_id = str(''.join(list("DOC") + num_id))
 
     # for DOCTOR PASSWORD
     M = 10
@@ -137,3 +138,12 @@ def register_doctor(request):
         )
         user_role.save()
     return render(request, 'registerdoctor.html')
+
+
+def department_name(request):
+    data = Department.objects.all()
+    final_data = []
+    for d in data:
+        final_data.append(d.department_name)
+    return JsonResponse(final_data, safe=False)
+        
