@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block css %}
+<style>
+.divid{
+    background-color: white;
+    border:1px solid black;
+    display: block !important;
+    font-size: larger;
+    padding: 3px;
+    font-weight: bold;
+    letter-spacing: 0.1ch;
+}
+</style>
+{% endblock %}
 {% block body_content %}
 <div class="container mt-3">
     <div class="row">
@@ -21,7 +33,8 @@
                         <input type="text" class="form-control" placeholder="Doctor ID" readonly>
                     </div>
                     <div class="col-6">
-                        <input type="text" class="form-control" placeholder="Patient ID" required minlength="6" maxlength="6">
+                        <input type="text" id="p_name" class="form-control" placeholder="Patient Name" required>
+                        <div class="col-3" id="pdata" style="z-index: 999; position:absolute; display: none;"></div>
                     </div>
                 </div>
                 <div class="row">
@@ -99,4 +112,41 @@
         </div>
     </div>
 </div>
+{% endblock %}
+{% block extra_js %}
+<script type="text/javascript">
+    $(document).ready(
+        function(){
+        $('#p_name').bind({
+        keyup:function(){
+            var p_name = $(this).val();
+            $.ajax({
+                url: "http://127.0.0.1:8000/reception/patient-list?p_name="+p_name,
+                success: function(result){
+                    var arr_len = result.length;
+                    var table = $('#pdata');
+                    var tabdata = "";
+                    var optionaldata = "<option>No Match</option>"
+                    $.each(result,function(i,data){
+                        tabdata = tabdata + "<p class='arrdata'>" + data.name + "</p>"
+                    });
+            
+            if(arr_len>0){
+                    table.html(tabdata).addClass('divid');
+            }
+            else{
+                table.html('').removeClass('divid');
+            }
+            }
+            });
+        }
+        
+    });
+
+    $('p.arrdata').hover(function(){
+        alert('this');
+    });
+});
+
+</script>
 {% endblock %}

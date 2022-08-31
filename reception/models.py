@@ -7,13 +7,14 @@ class PatientDetail(models.Model):
     patient_gender = models.CharField(max_length=10)
     patient_phone = models.IntegerField()
     patient_dob = models.DateField()
+    patient_dep = models.CharField(max_length=30,null=True)
     patient_password = models.CharField(max_length=100)
 
     def __str__(self):
         return str(self.patient_id)
 
 class Department(models.Model):
-    department_name = models.CharField(max_length=30)
+    department_name = models.CharField(max_length=30,unique=True)
 
     def __str__(self):
         return self.department_name
@@ -26,7 +27,7 @@ class DoctorDetail(models.Model):
     doctor_gender = models.CharField(max_length=10)
     doctor_phone = models.IntegerField()
     doctor_address = models.CharField(max_length=200)
-    doctor_department = models.CharField(max_length=100)
+    doctor_department = models.CharField(max_length=30)
     doctor_qualification = models.CharField(max_length=100)
     doctor_password = models.CharField(max_length=100)
      

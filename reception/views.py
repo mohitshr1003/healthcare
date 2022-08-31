@@ -1,3 +1,4 @@
+from pydoc import doc
 from django.shortcuts import render
 import string as s
 import random
@@ -56,6 +57,7 @@ def reception(request):
             patient_id=user,
             patient_gender=p_gender,
             patient_phone=p_mob,
+            patient_dep = p_dep,
             patient_dob=p_dob,
             patient_password=make_password(p_pass)
         )
@@ -145,5 +147,31 @@ def department_name(request):
     final_data = []
     for d in data:
         final_data.append(d.department_name)
+
     return JsonResponse(final_data, safe=False)
         
+def doctor_details(request):
+    get_dep = request.GET.get('dep_name')
+    doc_data = None
+    doc_list = []
+    if get_dep:
+        doc_data = DoctorDetail.objects.filter(doctor_department=get_dep)
+    if doc_data:
+        for i in doc_data:
+            doc_dict = {}
+            doc_dict['name']=i.doctor_name
+            doc_list.append(doc_dict)
+    return JsonResponse(doc_list,safe=False)
+
+def patient_details(request):
+    patient_name = request.GET.get('p_name')
+    patient_data = None
+    if patient_name:
+        patient_data = PatientDetail.objects.filter(patient_name__contains=patient_name)
+    p_list = []
+    if patient_data:
+        for i in patient_data:
+            p_dict = {}
+            p_dict['name']=i.patient_name
+            p_list.append(p_dict)
+    return JsonResponse(p_list,safe=False)
