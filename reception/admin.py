@@ -6,4 +6,4 @@ from reception.models import *
 admin.site.register(PatientDetail)
 admin.site.register(DoctorDetail)
 admin.site.register(UserRole)
-admin.site.register(DepartmentDetail)
+admin.site.register(Department)

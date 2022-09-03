@@ -59,7 +59,7 @@ def reception(request):
             patient_dob=p_dob,
             patient_password=make_password(p_pass)
         )
-        patient_registration.mohit(p_pass)
+        patient_registration.func(p_pass)
 
         user_role = UserRole(
             user = user,
@@ -130,7 +130,7 @@ def register_doctor(request):
             doctor_qualification = d_qualification,
             doctor_password = make_password(d_password)
         )
-        doctor_registration.save()
+        doctor_registration.func1(d_password)
 
         user_role = UserRole(
             user = user,
@@ -141,7 +141,7 @@ def register_doctor(request):
 
 
 def department_name(request):
-    data = DepartmentDetail.objects.all()
+    data = Department.objects.all()
     final_data = []
     for d in data:
         final_data.append(d.department_name)
