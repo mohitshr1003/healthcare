@@ -51,8 +51,13 @@
                         </div>
                     </div>
                     <div class="form-group col-12 flex-column d-flex pt-3">
+                        <table id="tabid">
+
+                        </table>
+                    </div>
+                    <div class="form-group col-12 flex-column d-flex pt-3">
                         <label class="form-control-label">Contact</label>
-                        <input type="text" id="pmob" name="pmob" placeholder="Contact Number" maxlength="10" minlength="10" required>
+                        <input type="email" id="pmail" name="pmail" placeholder="Email ID" required>
                     </div>
                     <div class="form-group col-12 pt-3 text-end">
                         <button type="submit" id="subBtn" class="btn-block px-4 py-3">SUBMIT</button>
@@ -82,14 +87,28 @@ function(){
             url: "http://127.0.0.1:8000/reception/department",
             success: function(result){
                 var dep = $('#dept');
-                var op = '';
+                var op = '<option selected disabled>Select</option>';
                 $.each(result,function(i,data){
                     op = op + '<option>' + data + '</option>'
                 });
                 dep.html(op);
             }
         });
-
+        $('#dept').change(
+            function(){
+            var dep_name = $('#dept').val();
+            $.ajax({
+                url: "http://127.0.0.1:8000/reception/doctor-list?dep_name="+dep_name,
+                success: function(result){
+                    var table = $('#tabid');
+                    var tabdata = "<tr><th>Name</th></tr>";
+                    $.each(result,function(i,data){
+                        tabdata = tabdata + "<tr><td>" + data.name + "</td></tr>"
+                    });
+                    table.html(tabdata);
+                }
+            });
+        });
 });
 
 </script>
