@@ -10,16 +10,16 @@
                 <form method="post">
                     {% csrf_token %}
                     <div class="col-12 pt-3">
-                        <input type="text" class="form-control" name="doctor_id" placeholder="ID" required="">
+                        <input type="text" id="doc-id" class="form-control" name="doctor_id" placeholder="ID" required>
                     </div>
                     <div class="col-12 pt-3">
-                        <input type="password" class="form-control" name="psw" placeholder="Password" required="">
+                        <input type="password" class="form-control" name="psw" placeholder="Password" required>
                     </div>
 
                     <div class="col-12 pt-3 text-danger" style="font-size: 12px;">
                     </div>
                     <div class="col-12 pt-3">
-                        <button class="btn text-light form-control" style="background-color: #1aa7ec;"> LOGIN
+                        <button class="btn text-light form-control" onclick="doclogin()" style="background-color: #1aa7ec;"> LOGIN
                         </button>
                     </div>
 
