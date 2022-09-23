@@ -54,3 +54,10 @@ class UserRole(models.Model):
 
     def __str__(self):
         return str(self.role)
+
+class MedicineDetail(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    disease = models.CharField(max_length=100)
+    symptoms = models.CharField(max_length=100)
+    medicine = models.CharField(max_length=100)
+    medicinetime = models.CharField(max_length=100)

@@ -173,3 +173,8 @@ def patient_details(request):
             p_dict['name']=i.patient_name
             p_list.append(p_dict)
     return JsonResponse(p_list,safe=False)
+
+def patient_medicine_details(request):
+    print(request.data)
+
+            
