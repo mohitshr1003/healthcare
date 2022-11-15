@@ -53,13 +53,13 @@
                         <h5><strong>TIME</strong></h5>
                     </div>
                 </div>
-                <div id="itemsdiv">
-                    <div class="row">
+                <div id="itemsdiv" style="display: none;">
+                <div class="row">
                         <div class="col-7">
-                            <input type="text" name="med4" class="form-control mt-3" placeholder="Rx" required>
+                            <input type="text" id="medicinecol" name="med[]" class="form-control mt-3" placeholder="Rx" required>
                         </div>
                         <div class="col-3" class="medicinetime">
-                            <select class="form-control mt-3" name="time4">
+                            <select class="form-control mt-3" name="time[]" id="timecol">
                                 <option value="OD">OD</option>
                                 <option value="BD">BD</option>
                                 <option value="TDS">TDS</option>
@@ -70,66 +70,15 @@
                         <div class="col-2 mt-3">
                             <button class="btn p-2 px-4" style="background-color:#1aa7ec; color: #fff;" onclick="delitem(this)">delete</button>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-7">
-                            <input type="text" name="med2" class="form-control mt-3" placeholder="Rx" required>
-                        </div>
-                        <div class="col-3" class="medicinetime">
-                            <select class="form-control mt-3" name="time2">
-                                <option value="OD">OD</option>
-                                <option value="BD">BD</option>
-                                <option value="TDS">TDS</option>
-                                <option value="HS">HS</option>
-                                <option value="SOS">SOS</option>
-                            </select>
-                        </div>
-                        <div class="col-2 mt-3">
-                            <button class="btn p-2 px-4" style="background-color:#1aa7ec; color: #fff;" onclick="delitem(this)">delete</button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7">
-                            <input type="text" name="med3" class="form-control mt-3" placeholder="Rx" required>
-                        </div>
-                        <div class="col-3" class="medicinetime">
-                            <select class="form-control mt-3" name="time3">
-                                <option value="OD">OD</option>
-                                <option value="BD">BD</option>
-                                <option value="TDS">TDS</option>
-                                <option value="HS">HS</option>
-                                <option value="SOS">SOS</option>
-                            </select>
-                        </div>
-                        <div class="col-2 mt-3">
-                            <button class="btn p-2 px-4" style="background-color:#1aa7ec; color: #fff;" onclick="delitem(this)">delete</button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7">
-                            <input type="text" name="med1" class="form-control mt-3" placeholder="Rx" required>
-                        </div>
-                        <div class="col-3" class="medicinetime">
-                            <select class="form-control mt-3" name="time1">
-                                <option value="OD">OD</option>
-                                <option value="BD">BD</option>
-                                <option value="TDS">TDS</option>
-                                <option value="HS">HS</option>
-                                <option value="SOS">SOS</option>
-                            </select>
-                        </div>
-                        <div class="col-2 mt-3">
-                            <button type="button" onclick="additem()" class="btn p-2 px-4" style="background-color:#1aa7ec; color: #fff;">New</button>
-                        </div>
-                    </div>
                 </div>
-                <div class="row" style="display: none;">
+                </div>
+                <div id="inputdiv">
+                    <div class="row">
                         <div class="col-7">
-                            <input type="text" id="medicinecol" class="form-control mt-3" placeholder="Rx" required>
+                            <input type="text" id="medicinecol" name="med[1]" class="form-control mt-3" placeholder="Rx" required>
                         </div>
                         <div class="col-3" class="medicinetime">
-                            <select class="form-control mt-3" id="timecol">
+                            <select class="form-control mt-3" name="time[1]" id="timecol">
                                 <option value="OD">OD</option>
                                 <option value="BD">BD</option>
                                 <option value="TDS">TDS</option>
@@ -140,6 +89,7 @@
                         <div class="col-2 mt-3">
                             <button type="button" onclick="additem()" class="btn p-2 px-4" style="background-color:#1aa7ec; color: #fff;">New</button>
                         </div>
+                    </div>
                 </div>
                 <div class="col-12 pt-3 mt-3 text-end">
                     <button type="submit" onclick="sendinfo()" class="btn p-2 px-4" style="background-color:#1aa7ec; color: #fff;">SEND</button>       
@@ -166,7 +116,7 @@
         keyup:function(){
             var p_name = $(this).val();
             $.ajax({
-                url: "http://127.0.0.1:8000/reception/patient-list?p_name="+p_name,
+                url: "http://127.0.0.1:8003/reception/patient-list?p_name="+p_name,
                 success: function(result){
                     var arr_len = result.length;
                     var table = $('#pdata');
@@ -194,21 +144,10 @@
 });
 function additem(){
     var d=document.getElementById('itemsdiv');
-    var num = d.children.length+1;
-    var h=document.getElementById('inputbox');
+    var a=document.getElementById('inputdiv');
 
-    const med=document.getElementById('medicinecol');
-    var newmed=med;
-    newmed.setAttribute('name','med'+num);
-
-    const time=document.getElementById('timecol');
-    var newtime=time;
-    newtime.setAttribute('name','time'+num);
-
-    var btn = '<button class="btn p-2 px-4" style="background-color:#1aa7ec; color: #fff;" onclick="delitem(this)">delete</button>';
-
-    d.innerHTML= '<div class="row"><div class="col-7" id></div><div class="col-3" class="medicinetime"></div><div class="col-2 mt-3">'+ btn+ '</div></div>' +d.innerHTML ;
-    console.log(newmed,newtime);
+    a.innerHTML += d.innerHTML + '</div></div>' ;
+    console.log(d);
 }
 function delitem(t){
         var item= t.parentNode.parentNode;

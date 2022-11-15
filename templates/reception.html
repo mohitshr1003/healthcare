@@ -84,7 +84,7 @@
 $(document).ready(
 function(){
         $.ajax({
-            url: "http://127.0.0.1:8000/reception/department",
+            url: "http://127.0.0.1:8003/reception/department",
             success: function(result){
                 var dep = $('#dept');
                 var op = '<option selected disabled>Select</option>';
@@ -98,7 +98,7 @@ function(){
             function(){
             var dep_name = $('#dept').val();
             $.ajax({
-                url: "http://127.0.0.1:8000/reception/doctor-list?dep_name="+dep_name,
+                url: "http://127.0.0.1:8003/reception/doctor-list?dep_name="+dep_name,
                 success: function(result){
                     var table = $('#tabid');
                     var tabdata = "<tr><th>Name</th></tr>";
